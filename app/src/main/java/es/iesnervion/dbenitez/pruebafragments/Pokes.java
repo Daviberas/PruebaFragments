@@ -1,0 +1,86 @@
+package es.iesnervion.dbenitez.pruebafragments;
+
+public class Pokes
+{
+    public static Pokemon[] pokes =
+            {
+            new Pokemon(),
+            new Pokemon(
+                    25,
+                    "Pikachu",
+                    "Este Pokémon tiene unas bolsas en las mejillas donde almacena electricidad. Parece ser que se recargan por la noche, mientras Pikachu duerme. A veces, cuando se acaba de despertar y está aún medio dormido, descarga un poco.",
+                    "Eléctrico",
+                    "Eléctrico",
+                    "Electricidad estática",
+                    null,
+                    "Pararrayos",
+                    null,
+                    R.drawable.pikachu2),
+            new Pokemon(
+                    133,
+                    "Eevee",
+                    "La configuración genética de Eevee le permite mutar y adaptarse enseguida a cualquier medio en el que viva. La evolución de este Pokémon suele ser posible gracias a las radiaciones emitidas por varias piedras.",
+                    "Normal",
+                    "Normal",
+                    "Fuga",
+                    "Adaptable",
+                    "Anticipación",
+                    null,
+                    R.drawable.eevee2),
+            new Pokemon(
+                    151,
+                    "Mew",
+                    "Dicen que Mew posee el mapa genético de todos los Pokémon. Puede hacerse invisible cuando quiere, así que pasa desapercibido cada vez que se le acerca alguien.",
+                    "Psíquico",
+                    "Psíquico",
+                    "Sincronía",
+                    null,
+                    null,
+                    null,
+                    R.drawable.mew2),
+            new Pokemon(
+                    609,
+                    "Chandelure",
+                    "Las almas que han ardido bajo sus oscuras llamas vagan sin rumbo y eternamente por este mundo.",
+                    "Fantasma",
+                    "Fuego",
+                    "Absorbe Fuego",
+                    "Cuerpo llama",
+                    "Sombra trampa",
+                    "Allanamiento",
+                    R.drawable.chandelure2),
+            new Pokemon(
+                    282,
+                    "Gardevoir",
+                    "Gardevoir tiene el poder psicoquinético de alterar las dimensiones y crear un agujero negro pequeño. Este Pokémon intenta proteger siempre a su entrenador aunque tenga que arriesgar su propia vida.",
+                    "Psíquico",
+                    "Hada",
+                    "Sincronía",
+                    "Rastro",
+                    "Telepatía",
+                    null,
+                    R.drawable.gardevoir2),
+            new Pokemon(
+                    448,
+                    "Lucario",
+                    "Emite unas ondas que le permiten percibir todo lo que se encuentra a 1km, incluso los sentimientos de otra persona.",
+                    "Lucha",
+                    "Acero",
+                    "Impasible",
+                    "Foco interno",
+                    "Justiciero",
+                    null,
+                    R.drawable.lucario2),
+            new Pokemon(
+                    492,
+                    "Shaymin",
+                    "Vive entre las flores. Para evitar ser descubierto, se enrosca como si fuera una planta.",
+                    "Planta",
+                    "Planta",
+                    "Cura natural",
+                    "Dicha",
+                    null,
+                    null,
+                    R.drawable.shaymin2)
+    };
+}
