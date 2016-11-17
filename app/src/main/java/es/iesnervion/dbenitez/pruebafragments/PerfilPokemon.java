@@ -21,7 +21,7 @@ public class PerfilPokemon extends Fragment
             mCurrentPosition = savedInstanceState.getInt(ARG_POSITION);
         }
 
-        return inflater.inflate(R.layout.pokemon, container, false);
+        return inflater.inflate(R.layout.poke_profile, container, false);
     }
 
     @Override
