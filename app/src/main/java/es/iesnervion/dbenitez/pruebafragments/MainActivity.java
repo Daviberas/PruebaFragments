@@ -6,6 +6,9 @@ import android.support.v4.app.FragmentActivity;
 
 public class MainActivity extends FragmentActivity implements OnListadoPokemonSelectedListener
 {
+    static final String STATE_POSITION = "position";
+
+    Integer position;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -20,25 +23,31 @@ public class MainActivity extends FragmentActivity implements OnListadoPokemonSe
             {
                 return;
             }
+            else
+            {
+                ListadoPokemon firstFragment = new ListadoPokemon();
 
-            ListadoPokemon firstFragment = new ListadoPokemon();
+                firstFragment.setArguments(getIntent().getExtras());
 
-            firstFragment.setArguments(getIntent().getExtras());
-
-            getFragmentManager().beginTransaction().add(R.id.listadoPokemon, firstFragment).commit();
+                getFragmentManager().beginTransaction().add(R.id.listadoPokemon, firstFragment).commit();
+            }
         }
     }
 
     @Override
     public void onPokemonSelected(int position)
     {
-        PerfilPokemon articleFrag = (PerfilPokemon) getFragmentManager().findFragmentById(R.id.perfilPokemon);
+        PerfilPokemon pokemonFrag = (PerfilPokemon) getFragmentManager().findFragmentById(R.id.perfilPokemon);
 
-        if (articleFrag != null)
+        this.position = position;
+
+        if (pokemonFrag != null)
         {
-            articleFrag.updatePokemonView(position);
+            pokemonFrag.updatePokemonView(position);
 
-        } else {
+        }
+        else
+        {
 
             PerfilPokemon newFragment = new PerfilPokemon();
             Bundle args = new Bundle();
@@ -51,6 +60,14 @@ public class MainActivity extends FragmentActivity implements OnListadoPokemonSe
 
             transaction.commit();
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState)
+    {
+        super.onSaveInstanceState(outState);
+
+        outState.putInt(STATE_POSITION,position);
     }
 
 }

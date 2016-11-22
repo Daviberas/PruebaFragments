@@ -32,7 +32,9 @@ public class PerfilPokemon extends Fragment
         if (args != null)
         {
             updatePokemonView(args.getInt(ARG_POSITION));
-        } else if (mCurrentPosition != -1)
+        }
+        else
+        if (mCurrentPosition != -1)
         {
             updatePokemonView(mCurrentPosition);
         }
@@ -51,12 +53,14 @@ public class PerfilPokemon extends Fragment
         numeroPokedex.setText("\nNº Pokédex: \n"+Pokes.pokes[position].getNumero());
         poke.setImageResource(Pokes.pokes[position].getImagen());
         descripcion.setText("\nDescripción: \n"+Pokes.pokes[position].getDescripcion());
+
+        String tipo = "\nTipo: "+Pokes.pokes[position].getTipoPrimario();
         if(!Pokes.pokes[position].getTipoPrimario().equals(Pokes.pokes[position].getTipoSecundario()))
         {
-            tipos.setText("\nTipo: "+Pokes.pokes[position].getTipoPrimario()+"/"+Pokes.pokes[position].getTipoSecundario());
+            tipo += "/"+Pokes.pokes[position].getTipoSecundario();
         }
-        else
-            tipos.setText("\nTipo: "+Pokes.pokes[position].getTipoPrimario());
+
+        tipos.setText(tipo);
 
         String habilidad = "\nHabilidades: \n"+Pokes.pokes[position].getHabilidadPrimaria();
         if(Pokes.pokes[position].getHabilidadSecundaria()!=null)
@@ -79,7 +83,8 @@ public class PerfilPokemon extends Fragment
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(Bundle outState)
+    {
         super.onSaveInstanceState(outState);
 
         outState.putInt(ARG_POSITION, mCurrentPosition);

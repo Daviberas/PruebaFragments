@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/poke"
         android:layout_marginLeft="10dp"
+        android:textSize="30dp"
         />
     <TextView
         android:id="@+id/numeroPokedex"
@@ -21,6 +22,7 @@
         android:layout_toRightOf="@id/poke"
         android:layout_below="@id/nombre"
         android:layout_marginLeft="10dp"
+        android:textSize="30dp"
         />
     <TextView
         android:id="@+id/descripcion"
@@ -28,6 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/poke"
         android:layout_marginLeft="10dp"
+        android:textSize="30dp"
         />
     <TextView
         android:id="@+id/tipos"
@@ -35,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/descripcion"
         android:layout_marginLeft="10dp"
+        android:textSize="30dp"
         />
     <TextView
         android:id="@+id/habilidades"
@@ -42,5 +46,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tipos"
         android:layout_marginLeft="10dp"
+        android:textSize="30dp"
         />
 </RelativeLayout>
