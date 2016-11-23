@@ -6,9 +6,9 @@ import android.support.v4.app.FragmentActivity;
 
 public class MainActivity extends FragmentActivity implements OnListadoPokemonSelectedListener
 {
-    static final String STATE_POSITION = "position";
+    //static final String STATE_POSITION = "position";
 
-    Integer position;
+    //Integer position;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -39,7 +39,7 @@ public class MainActivity extends FragmentActivity implements OnListadoPokemonSe
     {
         PerfilPokemon pokemonFrag = (PerfilPokemon) getFragmentManager().findFragmentById(R.id.perfilPokemon);
 
-        this.position = position;
+        //this.position = position;
 
         if (pokemonFrag != null)
         {
@@ -49,10 +49,8 @@ public class MainActivity extends FragmentActivity implements OnListadoPokemonSe
         else
         {
 
-            PerfilPokemon newFragment = new PerfilPokemon();
-            Bundle args = new Bundle();
-            args.putInt(PerfilPokemon.ARG_POSITION, position);
-            newFragment.setArguments(args);
+            PerfilPokemon newFragment = PerfilPokemon.newInstance(position);
+
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
             transaction.replace(R.id.listadoPokemon, newFragment);
@@ -67,7 +65,7 @@ public class MainActivity extends FragmentActivity implements OnListadoPokemonSe
     {
         super.onSaveInstanceState(outState);
 
-        outState.putInt(STATE_POSITION,position);
+     //   outState.putInt(STATE_POSITION,position);
     }
 
 }

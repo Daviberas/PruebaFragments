@@ -40,6 +40,17 @@ public class PerfilPokemon extends Fragment
         }
     }
 
+    public static PerfilPokemon newInstance(int position)
+    {
+        PerfilPokemon fragment = new PerfilPokemon();
+
+        Bundle args = new Bundle();
+        args.putInt(PerfilPokemon.ARG_POSITION, position);
+        fragment.setArguments(args);
+
+        return fragment;
+    }
+
     public void updatePokemonView(int position)
     {
         TextView nombre = (TextView) getActivity().findViewById(R.id.nombre);
