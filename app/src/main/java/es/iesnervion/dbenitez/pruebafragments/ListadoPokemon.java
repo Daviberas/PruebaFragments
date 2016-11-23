@@ -1,11 +1,10 @@
 package es.iesnervion.dbenitez.pruebafragments;
 
 import android.app.Activity;
-import android.app.ListFragment;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.support.v4.app.ListFragment;
 import android.widget.ListView;
 
 public class ListadoPokemon extends ListFragment

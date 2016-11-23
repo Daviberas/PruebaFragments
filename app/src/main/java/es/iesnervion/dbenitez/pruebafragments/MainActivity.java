@@ -1,14 +1,11 @@
 package es.iesnervion.dbenitez.pruebafragments;
 
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 
 public class MainActivity extends FragmentActivity implements OnListadoPokemonSelectedListener
 {
-    //static final String STATE_POSITION = "position";
-
-    //Integer position;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -16,7 +13,7 @@ public class MainActivity extends FragmentActivity implements OnListadoPokemonSe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (findViewById(R.id.listadoPokemon) != null)
+        if (findViewById(R.id.contenedor) != null)
         {
 
             if (savedInstanceState != null)
@@ -29,7 +26,7 @@ public class MainActivity extends FragmentActivity implements OnListadoPokemonSe
 
                 firstFragment.setArguments(getIntent().getExtras());
 
-                getFragmentManager().beginTransaction().add(R.id.listadoPokemon, firstFragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.contenedor, firstFragment).commit();
             }
         }
     }
@@ -37,9 +34,7 @@ public class MainActivity extends FragmentActivity implements OnListadoPokemonSe
     @Override
     public void onPokemonSelected(int position)
     {
-        PerfilPokemon pokemonFrag = (PerfilPokemon) getFragmentManager().findFragmentById(R.id.perfilPokemon);
-
-        //this.position = position;
+        PerfilPokemon pokemonFrag = (PerfilPokemon) getSupportFragmentManager().findFragmentById(R.id.perfilPokemon);
 
         if (pokemonFrag != null)
         {
@@ -51,9 +46,9 @@ public class MainActivity extends FragmentActivity implements OnListadoPokemonSe
 
             PerfilPokemon newFragment = PerfilPokemon.newInstance(position);
 
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-            transaction.replace(R.id.listadoPokemon, newFragment);
+            transaction.replace(R.id.contenedor, newFragment);
             transaction.addToBackStack(null);
 
             transaction.commit();
@@ -64,8 +59,7 @@ public class MainActivity extends FragmentActivity implements OnListadoPokemonSe
     public void onSaveInstanceState(Bundle outState)
     {
         super.onSaveInstanceState(outState);
-
-     //   outState.putInt(STATE_POSITION,position);
+        
     }
 
 }

@@ -1,7 +1,8 @@
 package es.iesnervion.dbenitez.pruebafragments;
 
-import android.app.Fragment;
+
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +21,8 @@ public class PerfilPokemon extends Fragment
         {
             mCurrentPosition = savedInstanceState.getInt(ARG_POSITION);
         }
-
-        return inflater.inflate(R.layout.poke_profile, container, false);
+        View v = inflater.inflate(R.layout.poke_profile, container, false);
+        return v;
     }
 
     @Override
