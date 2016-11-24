@@ -2,7 +2,7 @@ package es.iesnervion.dbenitez.pruebafragments;
 
 public class Pokes
 {
-    public static Pokemon[] pokes =
+    public static final Pokemon[] pokes =
             {
             new Pokemon(),
             new Pokemon(

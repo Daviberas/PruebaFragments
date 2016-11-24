@@ -13,6 +13,7 @@ public class PerfilPokemon extends Fragment
 {
     final static String ARG_POSITION = "position";
     int mCurrentPosition = -1;
+    static int lastPosition;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -20,6 +21,7 @@ public class PerfilPokemon extends Fragment
         if (savedInstanceState != null)
         {
             mCurrentPosition = savedInstanceState.getInt(ARG_POSITION);
+            lastPosition = mCurrentPosition;
         }
         View v = inflater.inflate(R.layout.poke_profile, container, false);
         return v;
@@ -92,6 +94,7 @@ public class PerfilPokemon extends Fragment
         habilidades.setText(habilidad);
 
         mCurrentPosition = position;
+        lastPosition = mCurrentPosition;
     }
 
     @Override
@@ -100,5 +103,10 @@ public class PerfilPokemon extends Fragment
         super.onSaveInstanceState(outState);
 
         outState.putInt(ARG_POSITION, mCurrentPosition);
+    }
+
+    public static int getPosicion()
+    {
+        return lastPosition;
     }
 }

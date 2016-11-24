@@ -1,6 +1,7 @@
 package es.iesnervion.dbenitez.pruebafragments;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -37,16 +38,16 @@ public class ListadoPokemon extends ListFragment
     }
 
     @Override
-    public void onAttach(Activity activity)
+    public void onAttach(Context context)
     {
-        super.onAttach(activity);
+        super.onAttach(context);
 
         try
         {
-            mCallback = (OnListadoPokemonSelectedListener) activity;
+            mCallback = (OnListadoPokemonSelectedListener) context;
         } catch (ClassCastException e)
         {
-            throw new ClassCastException(activity.toString()
+            throw new ClassCastException(context.toString()
                     + " must implement OnListadoPokemonSelectedListener");
         }
     }
