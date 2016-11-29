@@ -6,8 +6,8 @@ import android.support.v4.app.FragmentTransaction;
 
 public class MainActivity extends FragmentActivity implements OnListadoPokemonSelectedListener
 {
-    public static final String STATE_POSITION = "position";
-    Integer position;
+    public static final String TAG_PERFIL_POKEMON = "perfil";
+    private PerfilPokemon fragmentPokemon;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -20,13 +20,7 @@ public class MainActivity extends FragmentActivity implements OnListadoPokemonSe
 
             if (savedInstanceState != null)
             {
-                PerfilPokemon fragment = new PerfilPokemon();
-
-                fragment.setArguments(savedInstanceState);
-
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.contenedor, fragment);
-                transaction.commit();
+                fragmentPokemon = (PerfilPokemon) getSupportFragmentManager().findFragmentByTag(TAG_PERFIL_POKEMON);
             }
             else
             {
@@ -42,23 +36,20 @@ public class MainActivity extends FragmentActivity implements OnListadoPokemonSe
     @Override
     public void onPokemonSelected(int position)
     {
-        PerfilPokemon pokemonFrag = (PerfilPokemon) getSupportFragmentManager().findFragmentById(R.id.perfilPokemon);
 
-        this.position = position;
-
-        if (pokemonFrag != null)
+        if (fragmentPokemon != null)
         {
-            pokemonFrag.updatePokemonView(position);
+            fragmentPokemon.updatePokemonView(position);
 
         }
         else
         {
 
-            PerfilPokemon newFragment = PerfilPokemon.newInstance(position);
+            fragmentPokemon = PerfilPokemon.newInstance(position);
 
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-            transaction.replace(R.id.contenedor, newFragment);
+            transaction.replace(R.id.contenedor, fragmentPokemon, TAG_PERFIL_POKEMON);
             transaction.addToBackStack(null);
 
             transaction.commit();
@@ -70,12 +61,7 @@ public class MainActivity extends FragmentActivity implements OnListadoPokemonSe
     {
         super.onSaveInstanceState(outState);
 
-        if(position==null)
-        {
-            position = PerfilPokemon.getPosicion();
-        }
 
-        outState.putInt(STATE_POSITION, position);
     }
 
 }
